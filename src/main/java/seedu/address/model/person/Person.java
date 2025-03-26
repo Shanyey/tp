@@ -28,45 +28,23 @@ public class Person {
     private final BloodType bloodType;
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Checkup> checkups = new HashSet<>();
+    private final Set<MedicalHistory> medicalHistory = new HashSet<>();
 
     /**
      * Every field must be present and not null.
-     *
      */
     public Person(Name name, Phone phone, Email email, Address address, BloodType bloodType,
-                  Appointment appointment, Set<Tag> tags, Set<Checkup> checkups) {
-        requireAllNonNull(name, phone, email, address, tags, bloodType);
+                  Appointment appointment, Set<Tag> tags, Set<MedicalHistory> medicalHistory, Set<Checkup> checkups) {
+        requireAllNonNull(name, phone, email, address, bloodType, appointment, tags, medicalHistory);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.tags.addAll(tags);
-        this.checkups.addAll(checkups);
         this.bloodType = bloodType;
         this.appointment = appointment;
-    }
-
-    /**
-     * test
-     * @param name test
-     * @param phone test
-     * @param email test
-     * @param address test
-     * @param bloodType test
-     * @param appointment test
-     * @param tags test
-     */
-    public Person(Name name, Phone phone, Email email, Address address, BloodType bloodType,
-                  Appointment appointment, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags, bloodType);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
         this.tags.addAll(tags);
+        this.medicalHistory.addAll(medicalHistory);
         this.checkups.addAll(new HashSet<>());
-        this.bloodType = bloodType;
-        this.appointment = appointment;
     }
 
     public Name getName() {
@@ -98,6 +76,9 @@ public class Person {
      * if modification is attempted.
      */
     public Set<Tag> getTags() {
+        if (tags.isEmpty()) {
+            return Collections.emptySet();
+        }
         return Collections.unmodifiableSet(tags);
     }
 
@@ -109,6 +90,31 @@ public class Person {
         return !checkups.isEmpty();
     }
     /**
+     * Returns true if tags is empty and false otherwise.
+     */
+    public boolean checkIfTagsIsEmpty() {
+        return getTags().isEmpty();
+    }
+
+    /**
+     * Returns an immutable medical history set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public Set<MedicalHistory> getMedicalHistory() {
+        if (medicalHistory.isEmpty()) {
+            return Collections.emptySet();
+        }
+        return Collections.unmodifiableSet(medicalHistory);
+    }
+
+    /**
+     * Returns true if medical history is empty and false otherwise.
+     */
+    public boolean checkIfMedicalHistoryIsEmpty() {
+        return getMedicalHistory().isEmpty();
+    }
+
+    /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
@@ -119,6 +125,20 @@ public class Person {
 
         return otherPerson != null
                 && otherPerson.getName().equals(getName());
+    }
+
+    /**
+     * Returns true if the appointment is nurse and false otherwise.
+     */
+    public boolean isNurse() {
+        return this.getAppointment().toString().equalsIgnoreCase("nurse");
+    }
+
+    /**
+     * Returns true if the person has medical history and false otherwise.
+     */
+    public boolean hasMedicalHistory() {
+        return !this.getMedicalHistory().isEmpty();
     }
 
     /**
@@ -144,13 +164,14 @@ public class Person {
                 && bloodType.equals(otherPerson.bloodType)
                 && appointment.equals(otherPerson.appointment)
                 && tags.equals(otherPerson.tags)
+                && medicalHistory.equals(otherPerson.medicalHistory)
                 && checkups.equals(otherPerson.checkups);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, bloodType, appointment, tags, checkups);
+        return Objects.hash(name, phone, email, address, bloodType, appointment, tags, medicalHistory, checkups);
     }
 
     @Override
@@ -163,6 +184,7 @@ public class Person {
                 .add("bloodType", bloodType)
                 .add("appointment", appointment)
                 .add("tags", tags)
+                .add("medicalHistory", medicalHistory)
                 .add("checkups", checkups)
                 .toString();
     }

@@ -43,9 +43,34 @@ public class Messages {
                 .append(person.getEmail())
                 .append("; Address: ")
                 .append(person.getAddress())
-                .append("; Tags: ");
-        person.getTags().forEach(builder::append);
+                .append("; Blood Type: ")
+                .append(person.getBloodType())
+                .append("; Appointment: ")
+                .append(person.getAppointment());
+
+        tagBuilder(builder, person);
+        medicalHistoryBuilder(builder, person);
         return builder.toString();
+    }
+
+    private static StringBuilder tagBuilder(StringBuilder builder, Person person) {
+        builder.append("; Tags: ");
+        if (person.checkIfTagsIsEmpty()) {
+            builder.append("No tags");
+        } else {
+            person.getTags().forEach(builder::append);
+        }
+        return builder;
+    }
+
+    private static StringBuilder medicalHistoryBuilder(StringBuilder builder, Person person) {
+        builder.append("; Medical History: ");
+        if (person.checkIfMedicalHistoryIsEmpty()) {
+            builder.append("No medical history");
+        } else {
+            person.getMedicalHistory().forEach(builder::append);
+        }
+        return builder;
     }
 
 }

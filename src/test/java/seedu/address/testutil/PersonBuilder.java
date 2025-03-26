@@ -7,6 +7,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Appointment;
 import seedu.address.model.person.BloodType;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MedicalHistory;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -33,6 +34,7 @@ public class PersonBuilder {
     private BloodType bloodType;
     private Appointment appointment;
     private Set<Tag> tags;
+    private Set<MedicalHistory> medicalHistory;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -45,6 +47,7 @@ public class PersonBuilder {
         bloodType = new BloodType(DEFAULT_BLOOD_TYPE);
         appointment = new Appointment(DEFAULT_APPOINTMENT);
         tags = new HashSet<>();
+        medicalHistory = new HashSet<>();
     }
 
     /**
@@ -58,6 +61,7 @@ public class PersonBuilder {
         bloodType = personToCopy.getBloodType();
         appointment = personToCopy.getAppointment();
         tags = new HashSet<>(personToCopy.getTags());
+        medicalHistory = new HashSet<>(personToCopy.getMedicalHistory());
     }
 
     /**
@@ -116,8 +120,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code MedicalHistory} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withMedicalHistory(String ... medicalHistories) {
+        this.medicalHistory = SampleDataUtil.getMedicalHistorySet(medicalHistories);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, bloodType, appointment, tags);
+        return new Person(name, phone, email, address, bloodType, appointment, tags, medicalHistory);
     }
 
 }

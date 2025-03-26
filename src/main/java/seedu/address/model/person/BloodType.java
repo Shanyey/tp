@@ -21,7 +21,7 @@ public class BloodType {
     /**
      * Constructs a {@code BloodType}.
      *
-     * @param bloodType A valid name.
+     * @param bloodType A valid bloodType.
      */
     public BloodType(String bloodType) {
         requireNonNull(bloodType);

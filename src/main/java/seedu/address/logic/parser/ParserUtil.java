@@ -13,6 +13,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Appointment;
 import seedu.address.model.person.BloodType;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MedicalHistory;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -152,5 +153,32 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String medicalHistory} into a {@code MedicalHistory}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code medicalHistory} is invalid.
+     */
+    public static MedicalHistory parseMedicalHistory(String medicalHistory) throws ParseException {
+        requireNonNull(medicalHistory);
+        String trimmedMedicalHistory = medicalHistory.trim();
+        if (!MedicalHistory.isValidMedicalHistory(trimmedMedicalHistory)) {
+            throw new ParseException(MedicalHistory.MESSAGE_CONSTRAINTS);
+        }
+        return new MedicalHistory(trimmedMedicalHistory);
+    }
+
+    /**
+     * Parses {@code Collection<String> medicalHistories} into a {@code Set<MedicalHistory>}.
+     */
+    public static Set<MedicalHistory> parseMedicalHistories(Collection<String> medicalHistories) throws ParseException {
+        requireNonNull(medicalHistories);
+        final Set<MedicalHistory> medicalHistorySet = new HashSet<>();
+        for (String medicalHistory : medicalHistories) {
+            medicalHistorySet.add(parseMedicalHistory(medicalHistory));
+        }
+        return medicalHistorySet;
     }
 }
