@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.checkup.Checkup;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -26,6 +27,7 @@ public class Person {
     private final Address address;
     private final BloodType bloodType;
     private final Set<Tag> tags = new HashSet<>();
+    private final Set<Checkup> checkups = new HashSet<>();
     private final NextOfKin nextOfKin;
     private final Set<MedicalHistory> medicalHistory = new HashSet<>();
 
@@ -33,8 +35,8 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, BloodType bloodType,
-                  Appointment appointment, Set<Tag> tags, NextOfKin nextOfKin, Set<MedicalHistory> medicalHistory) {
-        requireAllNonNull(name, phone, email, address, bloodType, appointment, tags, medicalHistory, nextOfKin);
+                  Appointment appointment, Set<Tag> tags, NextOfKin nextOfKin, Set<MedicalHistory> medicalHistory, Set<Checkup> checkups) {
+        requireAllNonNull(name, phone, email, address, bloodType, appointment, tags, medicalHistory, nextOfKin, Set<Checkup> checkups);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -44,6 +46,7 @@ public class Person {
         this.nextOfKin = nextOfKin;
         this.tags.addAll(tags);
         this.medicalHistory.addAll(medicalHistory);
+        this.checkups.addAll(new HashSet<>());
     }
 
     public Name getName() {
@@ -81,6 +84,13 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
+    public Set<Checkup> getCheckups() {
+        return Collections.unmodifiableSet(checkups);
+    }
+
+    public boolean hasCheckup() {
+        return !checkups.isEmpty();
+    }
     /**
      * Returns the next of kin of the person, if available.
      * May be {@code null} if not specified.
@@ -165,14 +175,14 @@ public class Person {
                 && appointment.equals(otherPerson.appointment)
                 && nextOfKin.equals(otherPerson.nextOfKin)
                 && tags.equals(otherPerson.tags)
-                && medicalHistory.equals(otherPerson.medicalHistory);
-
+                && medicalHistory.equals(otherPerson.medicalHistory)
+                && checkups.equals(otherPerson.checkups);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, bloodType, appointment, tags, nextOfKin, medicalHistory);
+        return Objects.hash(name, phone, email, address, bloodType, appointment, tags, nextOfKin, medicalHistory, checkups);
     }
 
     @Override
@@ -187,7 +197,7 @@ public class Person {
                 .add("nextOfKin", nextOfKin)
                 .add("tags", tags)
                 .add("medicalHistory", medicalHistory)
+                .add("checkups", checkups)
                 .toString();
     }
-
 }

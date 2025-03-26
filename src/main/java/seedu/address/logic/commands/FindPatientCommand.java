@@ -23,7 +23,7 @@ import seedu.address.model.tag.Tag;
  */
 public class FindPatientCommand extends FindCommand {
 
-    public static final String COMMAND_WORD = "find patient";
+    public static final String COMMAND_WORD = "find patient of nurse ";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all patients assigned to the nurse at "
             + "the specified index and displays them as a list with index numbers.\n"

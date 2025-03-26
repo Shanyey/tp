@@ -84,4 +84,18 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Sorts the filtered person list in ascending order based on the earliest checkup date.
+     *
+     */
+    void sortFilteredPersonListByEarliestCheckup();
+
+    /**
+     * Returns an unmodifiable view of the sorted and filtered list of persons.
+     * This list is backed by the filtered list and reflects both filtering and sorting changes.
+     *
+     * @return An unmodifiable ObservableList of sorted and filtered persons.
+     */
+    ObservableList<Person> getSortedPersonList();
 }

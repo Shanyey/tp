@@ -18,7 +18,7 @@ import seedu.address.model.person.Person;
  */
 public class FindNurseCommand extends FindCommand {
 
-    public static final String COMMAND_WORD = "find nurse";
+    public static final String COMMAND_WORD = "find nurse of patient";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all patients assigned to the nurse at "
             + "the specified index and displays them as a list with index numbers.\n"

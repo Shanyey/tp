@@ -46,6 +46,8 @@ public class PersonCard extends UiPart<Region> {
     private Label nextOfKin;
     @FXML
     private FlowPane tags;
+    @FXML
+    private FlowPane checkups;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -64,5 +66,11 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        person.getCheckups().stream()
+                .sorted(Comparator.comparing(checkup -> checkup.checkupDateTime))
+                .forEach(checkup -> {
+                    Label checkupLabel = new Label(checkup.toString());
+                    checkups.getChildren().add(checkupLabel);
+                });
     }
 }

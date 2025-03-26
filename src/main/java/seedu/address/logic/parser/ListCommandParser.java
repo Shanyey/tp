@@ -21,22 +21,15 @@ public class ListCommandParser implements Parser<ListCommand> {
             return new ListCommand(null); // Show all persons if no filter is given
         }
 
-        String formattedAppointment = capitalizeFirstLetter(trimmedArgs);
-
-        if (!Appointment.isValidAppointment(formattedAppointment)) {
-            throw new ParseException("Invalid appointment type! Only 'Nurse' or 'Patient' are allowed.");
+        if (trimmedArgs.equals("checkup")) {
+            return new ListCommand(true);
         }
 
-        return new ListCommand(new Appointment(formattedAppointment));
-    }
-
-    /**
-     * Capitalizes the first letter of the given string.
-     */
-    private String capitalizeFirstLetter(String str) {
-        if (str == null || str.isEmpty()) {
-            return str;
+        if (!Appointment.isValidAppointment(trimmedArgs)) {
+            throw new ParseException("Invalid input type! Only 'nurse', 'patient' or 'checkup' are allowed.");
         }
-        return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
+
+
+        return new ListCommand(new Appointment(trimmedArgs));
     }
 }
