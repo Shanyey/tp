@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_APPOINTMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BLOODTYPE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MEDICAL_HISTORY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -19,6 +20,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.MedicalHistory;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -36,7 +38,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BLOODTYPE, PREFIX_APPOINTMENT, PREFIX_TAG);
+                        PREFIX_BLOODTYPE, PREFIX_APPOINTMENT, PREFIX_TAG, PREFIX_MEDICAL_HISTORY);
 
         Index index;
 
@@ -73,6 +75,9 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
+        parseMedicalHistoryForEdit(argMultimap.getAllValues(PREFIX_MEDICAL_HISTORY))
+                                   .ifPresent(editPersonDescriptor::setMedicalHistory);
+
         if (!editPersonDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
@@ -93,6 +98,19 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections.emptySet() : tags;
         return Optional.of(ParserUtil.parseTags(tagSet));
+    }
+
+    private Optional<Set<MedicalHistory>> parseMedicalHistoryForEdit(Collection<String> medicalHistories)
+                                                                                                throws ParseException {
+        assert medicalHistories != null;
+
+        if (medicalHistories.isEmpty()) {
+            return Optional.empty();
+        }
+        Collection<String> medicalHistorySet = medicalHistories.size() == 1 && medicalHistories.contains("")
+                                               ? Collections.emptySet()
+                                               : medicalHistories;
+        return Optional.of(ParserUtil.parseMedicalHistories(medicalHistorySet));
     }
 
 }

@@ -34,6 +34,9 @@ test {
     }
 }
 
+run {
+    enableAssertions = true
+}
 
 task coverage(type: JacocoReport) {
     sourceDirectories.from files(sourceSets.main.allSource.srcDirs)

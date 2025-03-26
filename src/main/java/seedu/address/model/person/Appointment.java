@@ -27,11 +27,18 @@ public class Appointment {
     public Appointment(String appointment) {
         requireNonNull(appointment);
         checkArgument(isValidAppointment(appointment), MESSAGE_CONSTRAINTS);
-        this.appointment = appointment.substring(0, 1).toUpperCase() + appointment.substring(1);
+        this.appointment = appointment.substring(0, 1).toUpperCase() + appointment.substring(1).toLowerCase();
     }
 
     public static boolean isValidAppointment(String test) {
         return test.toLowerCase().matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if the appointment is nurse and false otherwise.
+     */
+    public boolean isNurse() {
+        return this.toString().equalsIgnoreCase("nurse");
     }
 
     @Override
