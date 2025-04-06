@@ -28,6 +28,8 @@ MediBook is a desktop app for managing patient and nurse records, optimized for 
 4. [Known Issues](#known-issues)
 5. [Command Summary](#command-summary)
 
+* Table of Contents
+  {:toc}
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
