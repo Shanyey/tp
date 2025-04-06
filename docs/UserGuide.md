@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-MediBook is a desktop app for managing patient and nurse records, optimized for use via a Command Line Interface (CLI), while still offering the benefits of a Graphical User Interface (GUI). Designed for speed and efficiency, MediBook empowers private nurse centres to assign staff, retrieve patient information, and manage appointments faster than traditional pen-and-paper or GUI-based systems.
+MediBook is a desktop app for managing patient and nurse records, optimized for use via a Command Line Interface (CLI), while still offering the benefits of a Graphical User Interface (GUI). Designed for speed and efficiency, MediBook empowers private nurse centres to assign staff, retrieve patient information, and manage appointments faster than traditional pen-and-paper or GUI-based systems. AM I UPDATES? YES
 
 ## Table of Contents
 1. [Quick start](#quick-start)
