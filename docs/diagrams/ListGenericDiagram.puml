@@ -1,0 +1,48 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "l:ListCommand" as ListCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+
+group sd execute
+
+    LogicManager -> ListCommand : execute(m)
+    activate LogicManager
+    activate ListCommand
+
+    alt filterByCheckup == true
+        ListCommand -> Model : FilterByCheckup(new PersonHasCheckup())
+        activate Model
+    else appointmentFilter == null
+        ListCommand -> Model : updateFilteredPersonList(...)
+    else filter by appointment
+        ListCommand -> Model : updateFilteredPersonList(new PersonHasAppointment())
+    end
+
+    Model --> ListCommand
+
+    deactivate Model
+
+    create CommandResult
+    ListCommand -> CommandResult : new CommandResult(...)
+    activate CommandResult
+    CommandResult --> ListCommand
+    deactivate CommandResult
+
+    ListCommand --> LogicManager : r
+    deactivate ListCommand
+
+deactivate LogicManager
+end
+
+@enduml
+
+
+
+

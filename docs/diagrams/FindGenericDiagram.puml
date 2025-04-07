@@ -1,0 +1,39 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "f:FindNurseCommand" as FindNurseCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+    FindNurseCommand -> Model : getPatientFromModel()
+
+    activate FindNurseCommand
+    activate Model
+
+    Model --> FindNurseCommand
+    deactivate Model
+    alt nurseNames.isEmpty()
+        FindNurseCommand --> LogicManager : throw CommandException
+        activate LogicManager
+
+    else else
+        create CommandResult
+        FindNurseCommand -> CommandResult : new CommandResult(...)
+        activate CommandResult
+        CommandResult --> FindNurseCommand
+        deactivate CommandResult
+    FindNurseCommand --> LogicManager : r
+    deactivate FindNurseCommand
+    deactivate LogicManager
+    end
+end
+
+@enduml
+
+
+
+

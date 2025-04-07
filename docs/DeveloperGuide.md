@@ -125,9 +125,8 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <img src="images/LogicClassDiagram.png" width="550"/>
 
-The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delete 1")` API call as an example.
-
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+The sequence diagram below represents a generic model for command execution within the Logic component, specifically illustrating the interaction for the execute("...") API call. This model serves as a foundational framework that can be used for various command types, demonstrating how the LogicManager invokes the execute method.
+![Interactions Inside the Logic Component for the `...` Command](images/GenericDiagram.png)
 
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 
@@ -191,7 +190,7 @@ The `add` command allows the user to add a new person to the address book.
 1. `AddressBookParser` parses the command and returns an `AddCommand` object.
 1. `AddCommand#execute()` adds the person to the model and returns a `CommandResult`.
 
-![Sequence Diagram](images/AddCommandSequenceDiagram.png)
+![Sequence Diagram](images/AddGenericDiagram.png)
 
 #### Design considerations:
 
@@ -206,7 +205,7 @@ The `edit` command allows the user to edit an existing person in the address boo
 1. `EditCommandParser#parse()` creates an `EditCommand` object.
 1. `EditCommand#execute()` edits the person in the model and returns a `CommandResult`.
 
-![Sequence Diagram](images/EditSequenceDiagram.png)
+![Sequence Diagram](images/EditGenericDiagram.png)
 
 #### Design considerations:
 
@@ -231,7 +230,7 @@ It supports the following use cases:
    * If a specific appointment filter was provided (e.g., `"nurse"`), it filters with `PersonHasAppointmentPredicate`.
 1. A `CommandResult` is returned with a success message indicating what was listed.
 
-![Sequence Diagram](images/ListCommandSequenceDiagram.png)
+![Sequence Diagram](images/ListGenericDiagram.png)
 
 #### Design considerations:
 
@@ -260,7 +259,7 @@ This functionality improves user experience by allowing quick access to relevant
 
 Using this command, users can effortlessly navigate and manage their address book, finding relevant information quickly and efficiently.
 
-![Sequence Diagram](images/FindCommandSequenceDiagram.png)
+![Sequence Diagram](images/FindGenericDiagram.png)
 
 #### Design considerations:
 
@@ -276,7 +275,7 @@ The `assign` command allows the user to assign a nurse to a patient.
 1. `AddressBookParser` parses the command and returns an `AssignCommand` object.
 1. `AssignCommand#execute()` assigns the nurse to the patient and returns a `CommandResult`.
 
-![Sequence Diagram](images/AssignSequenceDiagram.png)
+![Sequence Diagram](images/AssignGenericDiagram.png)
 
 #### Design considerations:
 
@@ -703,3 +702,4 @@ Our project required effort in these 4 main aspects:
 
 ### Achievements
 Despite the complexity and effort required, our final project offers a user-friendly and extensible system. Our main achievements in this project were: implementing scheduling of medical checkups with conflict management implemented, list command with important filters such as checkup existence, allowing more optional fields like next of kin and email to provide more flexibility to the user, and last but not least adjusting requirements of duplicate persons to better match real world situations.
+

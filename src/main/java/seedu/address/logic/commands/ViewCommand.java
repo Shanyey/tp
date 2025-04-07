@@ -12,7 +12,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.MedicalHistory;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonHasSameNamePredicate;
 
 /**
  * View nurse or patient details.
@@ -56,7 +55,6 @@ public class ViewCommand extends Command {
         Person viewedPerson = lastShownList.get(index.getZeroBased());
         int zeroBasedIndex = index.getZeroBased();
 
-//        lastShownListPredicate = person -> person.isSamePerson(viewedPerson);
         model.updateFilteredPersonList(person -> model.getFilteredPersonList().indexOf(person) == index.getZeroBased());
 
         String responseMessage = String.format(MESSAGE_SUCCESS, viewedPerson.getName());
