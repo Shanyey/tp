@@ -86,6 +86,8 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
 
    ![Ui](images/Ui.png)
+<span style="display: block; text-align: center; margin: 0;">MediBook Start-Up Graphical User Interface</span>
+
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -203,6 +205,7 @@ Launches a popup window with a link for our User Guide. Clicking on `Copy URL` w
 in your browser.
 
 ![help message](images/helpMessage.png)
+<span style="display: block; text-align: center; margin: 0;">`Help` Pop-up Window</span>
 
 Format: `help`
 
@@ -224,14 +227,15 @@ Adds a person to the address book.
 
 #### Examples
 
-* `add n/John Doe dob/01/01/2001 p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/AB+ ap/Nurse t/friend`
+* `add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man`
 * `add n/Betsy Crowe dob/01/01/2001 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/No Family mh/Insane, but not dangerous b/B+ ap/Patient`
 
 >💡**Tip**: You can refer back to [here](#overview-of-person-attributes), for more details on the person attributes and their formats.
 
 > ⚠️ **Contraints:** MediBook has a duplicate policy which you can view [here](#duplicate-policy).
 
-![result for 'add n/John Doe dob/01/01/2001 p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/AB+ ap/Nurse t/friend'](images/AddPerson.png)
+![result for 'add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man'](images/AddPerson.png)
+<span style="display: block; text-align: center; margin: 0;">`add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man` Command Execution</span>
 
 [🔙 Back to Features](#features)
 [📋 View Person Attributes](#overview-of-person-attributes)
@@ -255,6 +259,7 @@ Displays a list of persons in the address book. You can choose to list all perso
 * `list checkup`: Shows only the patients with scheduled checkups, sorted from earliest to latest checkup.
 
 ![result for 'list'](images/ListAllNurseAndPatient.png)
+<span style="display: block; text-align: center; margin: 0;">`list` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -288,9 +293,55 @@ Edits an existing person's information in MediBook.
 > ⚠️ **Contraints:** MediBook has a duplicate policy which you can view [here](#duplicate-policy).
 
 ![result for 'edit 1 p/8549 9584 b/O+'](images/EditPerson.png)
+<span style="display: block; text-align: center; margin: 0;">`edit 1 p/8549 9584 b/O+` Command Execution</span>
 
 [🔙 Back to Features](#features)
 [📋 View Person Attributes](#overview-of-person-attributes)
+
+### Assign a nurse to a patient : `assign`
+
+Assigns a specified nurse to a specified patient.
+
+#### Details
+
+* Assigns the nurse at `NURSE_INDEX` to the patient at `PATIENT_INDEX`.
+* `NURSE_INDEX` and `PATIENT_INDEX` both refer to the index number shown in the displayed person list.
+* At most 2 nurses can be assigned to one patient.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+#### Format
+
+`assign PATIENT_INDEX NURSE_INDEX`
+
+#### Examples
+
+* `assign 6 4` assigns the nurse at index 4 to the patient at index 6.
+
+![result for 'assign 6 4'](images/AssignScreenshot.png)
+<span style="display: block; text-align: center; margin: 0;">`assign 6 4` Command Execution</span>
+
+[🔙 Back to Features](#features)
+
+### Delete nurse assignment from a patient : `assign delete`
+
+Removes a specified assigned nurse from a specified patient.
+
+#### Details
+
+* Removes the assigned nurse with name `NURSE_NAME` from the patient at `PATIENT_INDEX`.
+* `NURSE_NAME` needs to match the full name shown on the patient's assigned nurse tag, but is case-insensitive.
+* `PATIENT_INDEX` refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+#### Format
+
+`assign delete NURSE_NAME PATIENT_INDEX`
+
+#### Examples
+
+* `assign delete john doe 2` removes the assignment of Nurse JOHN DOE from the patient at index 2.
+
+[🔙 Back to Features](#features)
 
 ### Locating persons: `find`
 
@@ -314,12 +365,14 @@ Finds persons whose names contain any of the given keywords or prefixes.
 * `KEYWORD`: The keyword to search for in a person's name. May be a full or partial name.
 * `[MORE_KEYWORDS]`: Additional keywords (optional) to further find more than one person.
 
-#### Examples:
+#### Examples
+
+* `find alex david` returns `Alex Yeoh`, `David Li`
 * `find John` returns `john` and `John Doe`
 * `find al` returns `Alex Yeoh` and `Sally`
-* `find alex david` returns `Alex Yeoh`, `David Li`
 
 ![result for 'find alex david'](images/findAlexDavidResult.png)
+<span style="display: block; text-align: center; margin: 0;">`find alex david` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -342,11 +395,11 @@ Finds patients assigned under a specified nurse.
 `find patient of nurse INDEX`
 
 #### Examples
-
-* `find patient of nurse 1` returns e.g: Patient(s) assigned to nurse ALEX YEOH: ROY BALAKRISHNAN.
+* `find patient of nurse 4` returns e.g: Patient(s) assigned to nurse DAVID LI: JOHN DOE.
 * `find patient of nurse 3` returns e.g: No patient assigned to the nurse at index 3. 
 
 ![result for 'find patient of nurse 3'](images/FindNoPatient.png)
+<span style="display: block; text-align: center; margin: 0;">`find patient of nurse 4` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -370,53 +423,11 @@ Finds nurse(s) assigned to a specified patient.
 
 #### Examples
 
-* `find nurse of patient 6` returns e.g: Nurse(s) assigned to patient ROY BALAKRISHNAN:  ALEX YEOH,  CHARLOTTE OLIVEIRO.
+* `find nurse of patient 6` returns e.g: Nurse(s) assigned to patient JOHN DOE: DAVID LI.
 * `find nurse of patient 7` returns e.g: No nurse assigned to the patient at index 7.
 
 ![result for 'find nurse of patient 6'](images/FindNurseOfPatient.png)
-
-[🔙 Back to Features](#features)
-
-### Assign a nurse to a patient : `assign`
-
-Assigns a specified nurse to a specified patient.
-
-#### Details
-
-* Assigns the nurse at `NURSE_INDEX` to the patient at `PATIENT_INDEX`.
-* `NURSE_INDEX` and `PATIENT_INDEX` both refer to the index number shown in the displayed person list.
-* At most 2 nurses can be assigned to one patient.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-#### Format
-
-`assign PATIENT_INDEX NURSE_INDEX`
-
-#### Examples
-
-* `assign 6 4` assigns the nurse at index 4 to the patient at index 6.
-
-![result for 'assign 6 4'](images/AssignScreenshot.png)
-[🔙 Back to Features](#features)
-
-### Delete nurse assignment from a patient : `assign delete`
-
-Removes a specified assigned nurse from a specified patient.
-
-#### Details
-
-* Removes the assigned nurse with name `NURSE_NAME` from the patient at `PATIENT_INDEX`.
-* `NURSE_NAME` needs to match the full name shown on the patient's assigned nurse tag, but is case-insensitive.
-* `PATIENT_INDEX` refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-#### Format
-
-`assign delete NURSE_NAME PATIENT_INDEX`
-
-#### Examples
-
-* `assign delete john doe 2` removes the assignment of Nurse JOHN DOE from the patient at index 2.
+<span style="display: block; text-align: center; margin: 0;">`find nurse of patient 6` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -463,7 +474,7 @@ Schedules or deletes checkup sessions for patients.
 *   `schedule delete for patient 6 11/04/2025 1400`: Deletes a checkup for the patient at index 6 on April 11, 2025, at 14:00 PM.
 
 ![result for 'schedule add for patient 6 11/04/2025 1400'](images/ScheduleCheckupForPatient.png)
-
+<span style="display: block; text-align: center; margin: 0;">`schedule add for patient 6 11/04/2025 1400` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -476,7 +487,7 @@ Displays details of specified person. If specified person is a patient with medi
 * Displays the details of the person at `INDEX`.
 * If the person is a patient, then the patient's medical history is shown (if any).
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3
+* The index **must be a positive integer** 1, 2, 3,…​
 
 #### Format
 
@@ -484,9 +495,10 @@ Displays details of specified person. If specified person is a patient with medi
 
 #### Example
 
-* `view 7`: Views the patient medical history
+* `view 6`: Views the 6th contact in the list and displays the person's details. If the person is a patient and has medical history, then medical history will be shown.
 
-![result for 'view 7'](images/ViewMedicalHistory.png)
+![result for 'view 6'](images/ViewMedicalHistory.png)
+<span style="display: block; text-align: center; margin: 0;">`view 6` Command Execution</span>
 
 [🔙 Back to Features](#features)
 
@@ -497,7 +509,7 @@ Deletes the specified person from the address book.
 #### Details
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index **must be a positive integer** 1, 2, 3,…​
 
 #### Format
 

@@ -128,7 +128,7 @@ Here's a (partial) class diagram of the `Logic` component:
 The sequence diagram below represents a generic model for command execution within the Logic component, specifically illustrating the interaction for the execute("...") API call. This model serves as a foundational framework that can be used for various command types, demonstrating how the LogicManager invokes the execute method.
 ![Interactions Inside the Logic Component for the `...` Command](images/GenericDiagram.png)
 
-**Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
+**Note:** The lifeline for `CommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 
 How the `Logic` component works:
 
