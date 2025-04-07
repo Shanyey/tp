@@ -463,10 +463,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Nurse**: Tends to the patients
 * **Checkup**: A scheduled appointment for nurse to visit and treat the patient.
 
-### Requirements implemented ###
-
-### Requirements yet to be implemented ###
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**

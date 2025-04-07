@@ -343,7 +343,7 @@ Removes a specified assigned nurse from a specified patient.
 
 [🔙 Back to Features](#features)
 
-### Locating persons: `find`
+### Locating persons : `find`
 
 Finds persons whose names contain any of the given keywords or prefixes.
 
@@ -376,7 +376,7 @@ Finds persons whose names contain any of the given keywords or prefixes.
 
 [🔙 Back to Features](#features)
 
-### Finding patient `find patient of nurse `
+### Finding patient : `find patient of nurse `
 
 Finds patients assigned under a specified nurse.
 
@@ -403,7 +403,7 @@ Finds patients assigned under a specified nurse.
 
 [🔙 Back to Features](#features)
 
-### Finding nurse `find nurse of patient`
+### Finding nurse : `find nurse of patient`
 
 Finds nurse(s) assigned to a specified patient.
 
@@ -431,7 +431,7 @@ Finds nurse(s) assigned to a specified patient.
 
 [🔙 Back to Features](#features)
 
-### Schedule Checkups: `schedule add for patient` / `schedule delete for patient`
+### Schedule Checkups : `schedule add for patient` / `schedule delete for patient`
 
 Schedules or deletes checkup sessions for patients.
 
