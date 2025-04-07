@@ -1,0 +1,36 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "e:EditCommand" as EditCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+    LogicManager -> EditCommand : execute(m)
+    activate LogicManager
+    activate EditCommand
+    EditCommand -> Model : setPerson(...)
+    activate Model
+    Model --> EditCommand
+    deactivate Model
+    create CommandResult
+    EditCommand -> CommandResult : new CommandResult(...)
+    activate CommandResult
+
+    CommandResult --> EditCommand
+    deactivate CommandResult
+
+    EditCommand --> LogicManager
+    deactivate EditCommand
+
+deactivate LogicManager
+end
+
+@enduml
+
+
+
+

@@ -1,0 +1,37 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "a:AssignCommand" as AssignCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+
+    LogicManager -> AssignCommand : execute(m)
+    activate LogicManager
+    activate AssignCommand
+    AssignCommand -> Model : assignNurseToPatient(...)
+    activate Model
+    Model --> AssignCommand
+    deactivate Model
+    create CommandResult
+    AssignCommand -> CommandResult : new CommandResult(...)
+    activate CommandResult
+
+    CommandResult --> AssignCommand
+    deactivate CommandResult
+
+    AssignCommand --> LogicManager
+    deactivate AssignCommand
+
+deactivate LogicManager
+end
+
+@enduml
+
+
+
+

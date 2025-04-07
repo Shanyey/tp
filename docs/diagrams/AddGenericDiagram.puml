@@ -1,0 +1,42 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "a:AddCommand" as AddCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+    alt model.hasPerson(toAdd) == true
+            AddCommand ---> LogicManager : throw CommandException
+            activate LogicManager
+            activate AddCommand
+
+        else else
+            AddCommand -> Model : addPerson(...)
+            activate Model
+            Model --> AddCommand
+            deactivate Model
+
+            create CommandResult
+            AddCommand -> CommandResult : new CommandResult(...)
+            activate CommandResult
+            CommandResult --> AddCommand
+            deactivate CommandResult
+            AddCommand --> LogicManager
+            deactivate AddCommand
+
+        deactivate LogicManager
+      end
+end
+
+@enduml
+
+
+participant ":TextUi" as TextUi #EE82EE
+participant ":MSLogic" as MSLogic #90EE90
+
+
+

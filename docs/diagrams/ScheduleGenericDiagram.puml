@@ -1,0 +1,48 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "s:ScheduleCommand" as ScheduleCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+participant ":Checkup" as CheckupObject LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+    LogicManager -> ScheduleCommand : execute(m)
+    activate LogicManager
+    activate ScheduleCommand
+    ScheduleCommand -> Model : getPatientFromModel
+    activate Model
+
+    Model --> ScheduleCommand
+    deactivate Model
+
+    create CheckupObject
+    ScheduleCommand -> CheckupObject : new Checkup(...)
+    activate CheckupObject
+
+    CheckupObject --> ScheduleCommand
+    deactivate CheckupObject
+
+    ScheduleCommand -> ScheduleCommand : updatePatientWithCheckup
+
+    create CommandResult
+    ScheduleCommand -> CommandResult : new CommandResult(...)
+    activate CommandResult
+
+    CommandResult --> ScheduleCommand
+    deactivate CommandResult
+
+    ScheduleCommand --> LogicManager
+    deactivate ScheduleCommand
+
+    deactivate LogicManager
+end
+
+@enduml
+
+
+
+

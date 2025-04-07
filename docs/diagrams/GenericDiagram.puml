@@ -1,0 +1,50 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+hide footbox
+skinparam sequenceReferenceBackgroundColor #00000
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant Parser as Parser LOGIC_COLOR
+participant CommandParser as CommandParser LOGIC_COLOR
+participant "c:Command" as Command LOGIC_COLOR
+end box
+
+
+[-> LogicManager : execute(...)
+activate LogicManager
+
+LogicManager -> Parser : parseCommand(...)
+activate Parser
+
+create CommandParser
+Parser -> CommandParser
+activate CommandParser
+
+CommandParser --> Parser
+deactivate CommandParser
+
+Parser -> CommandParser : parse(...)
+activate CommandParser
+
+create Command
+CommandParser -> Command
+activate Command
+
+Command --> CommandParser :
+deactivate Command
+
+CommandParser --> Parser : d
+deactivate CommandParser
+destroy CommandParser
+
+Parser --> LogicManager : d
+deactivate Parser
+
+ref over LogicManager, Parser, CommandParser, Command
+    execute
+
+end ref
+[<--LogicManager
+@enduml

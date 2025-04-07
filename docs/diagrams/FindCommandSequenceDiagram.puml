@@ -61,7 +61,7 @@ deactivate FindNurseCommand
 
 alt nurseNames.isEmpty()
         FindNurseCommand --> LogicManager: throw CommandException
-else default
+else else
     create CommandResult
     FindNurseCommand -> CommandResult
     activate CommandResult
@@ -74,3 +74,5 @@ end
 [<--LogicManager
 deactivate LogicManager
 @enduml
+
+

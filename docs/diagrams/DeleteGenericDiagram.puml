@@ -1,0 +1,36 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+
+participant "m:Model" as Model MODEL_COLOR
+
+group sd execute
+    LogicManager -> DeleteCommand : execute(m)
+    activate LogicManager
+    activate DeleteCommand
+    DeleteCommand -> Model : deletePerson(...)
+    activate Model
+    Model --> DeleteCommand
+    deactivate Model
+    create CommandResult
+    DeleteCommand -> CommandResult : new CommandResult(...)
+    activate CommandResult
+
+    CommandResult --> DeleteCommand
+    deactivate CommandResult
+
+    DeleteCommand --> LogicManager
+    deactivate DeleteCommand
+
+deactivate LogicManager
+end
+
+@enduml
+
+
+
+
