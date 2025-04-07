@@ -203,7 +203,7 @@ Quick Navigation:
 
 ### Viewing help : `help`
 
-Launches a popup window with a link for our User Guide. Clicking on `Copy URL` will copy the URL for you to paste 
+Launches a popup window with a link to our User Guide. Clicking on `Copy URL` will copy the URL for you to paste 
 in your browser.
 
 ![help message](images/helpMessage.png)
@@ -370,7 +370,7 @@ Finds persons whose names contain any of the given keywords or prefixes.
 #### Examples
 
 * `find alex david` returns `Alex Yeoh`, `David Li`
-* `find John` returns `john` and `John Doe`
+* `find John` returns `John` and `John Doe`
 * `find al` returns `Alex Yeoh` and `Sally`
 
 ![result for 'find alex david'](images/findAlexDavidResult.png)
@@ -466,7 +466,7 @@ Schedules or deletes checkup sessions for patients.
 
 #### Parameters
 
-*   `INDEX`: Refers to the index number of the patient in the displayed list. The index must be a positive integer (1, 2, 3, ...).
+*   `INDEX`: Refers to the index number of the patient in the displayed list. The index must be a positive integer (1, 2, 3, ...) and be within the total number of person in the list.
 *   `DATE`: The date for the checkup, in `DD/MM/YYYY` format.
 *   `TIME`: The time for the checkup, in `HHMM` format (24-hour clock).
 
@@ -489,7 +489,7 @@ Displays details of specified person. If specified person is a patient with medi
 * Displays the details of the person at `INDEX`.
 * If the person is a patient, then the patient's medical history is shown (if any).
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3,…​
+* The index **must be a positive integer** 1, 2, 3,…​ and be within the total number of person in the list.
 
 #### Format
 
@@ -511,7 +511,7 @@ Deletes the specified person from the address book.
 #### Details
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3,…​
+* The index **must be a positive integer** 1, 2, 3,…​ and be within the total number of person in the list.
 
 #### Format
 
@@ -619,12 +619,12 @@ Example:
 
 ## Colour Legend
 
-| Field               | Colour       |
-|---------------------|--------------|
-| Patient Appointment | Light Blue   |
-| Nurse Appointment   | Orange       |
-| Tag                 | Light Purple |
-| Checkup             | Light brown  |
-| Assigned Nurse      | Green        |
+| Field               | Colour                                            |
+|---------------------|---------------------------------------------------|
+| Patient Appointment | <span style="color: lightblue;">Light Blue</span> |
+| Nurse Appointment   | <span style="color: orange;">Orange</span>        |
+| Tag                 | <span style="color: #D8B2D1;">Light Purple</span> |
+| Checkup             | <span style="color: #D2B48C;">Light Brown</span>  |
+| Assigned Nurse      | <span style="color: green;">Green</span>          |
 
 [🔝 Back to Table of Contents](#table-of-contents)
