@@ -291,7 +291,7 @@ The `schedule` command allows the user to create a checkup between a patient and
 1. `AddressBookParser` parses the command and returns an `ScheduleCommand` object.
 1. `ScheduleCommand#execute()` creates or deletes the checkup from the patient and returns a `CommandResult`.
 
-![Sequence Diagram](images/ScheduleSequenceDiagram.png)
+![Sequence Diagram](images/ScheduleGenericDiagram.png)
 
 #### Design considerations:
 

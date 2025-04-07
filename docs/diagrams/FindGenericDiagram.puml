@@ -9,16 +9,19 @@ participant "r:CommandResult" as CommandResult LOGIC_COLOR
 participant "m:Model" as Model MODEL_COLOR
 
 group sd execute
+
+    LogicManager -> FindNurseCommand : execute(m)
+    activate FindNurseCommand
+    activate LogicManager
+
     FindNurseCommand -> Model : getPatientFromModel()
 
-    activate FindNurseCommand
     activate Model
 
     Model --> FindNurseCommand
     deactivate Model
     alt nurseNames.isEmpty()
         FindNurseCommand --> LogicManager : throw CommandException
-        activate LogicManager
 
     else else
         create CommandResult
@@ -26,9 +29,9 @@ group sd execute
         activate CommandResult
         CommandResult --> FindNurseCommand
         deactivate CommandResult
-    FindNurseCommand --> LogicManager : r
-    deactivate FindNurseCommand
-    deactivate LogicManager
+        FindNurseCommand --> LogicManager : r
+        deactivate FindNurseCommand
+        deactivate LogicManager
     end
 end
 

@@ -9,27 +9,31 @@ participant "r:CommandResult" as CommandResult LOGIC_COLOR
 participant "m:Model" as Model MODEL_COLOR
 
 group sd execute
+    LogicManager -> AddCommand : execute(m)
+
+    activate LogicManager
+    activate AddCommand
+
     alt model.hasPerson(toAdd) == true
             AddCommand ---> LogicManager : throw CommandException
-            activate LogicManager
-            activate AddCommand
 
-        else else
-            AddCommand -> Model : addPerson(...)
-            activate Model
-            Model --> AddCommand
-            deactivate Model
+            else else
+                AddCommand -> Model : addPerson(...)
+                activate Model
+                Model --> AddCommand
+                deactivate Model
 
-            create CommandResult
-            AddCommand -> CommandResult : new CommandResult(...)
-            activate CommandResult
-            CommandResult --> AddCommand
-            deactivate CommandResult
-            AddCommand --> LogicManager
-            deactivate AddCommand
+                create CommandResult
+                AddCommand -> CommandResult : new CommandResult(...)
+                activate CommandResult
+                CommandResult --> AddCommand
+                deactivate CommandResult
+                AddCommand --> LogicManager
+                deactivate AddCommand
 
-        deactivate LogicManager
-      end
+            deactivate LogicManager
+          end
+
 end
 
 @enduml
