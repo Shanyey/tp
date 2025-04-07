@@ -86,6 +86,8 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
 
    ![Ui](images/Ui.png)
+<span style="display: block; text-align: center; margin: 0;">MediBook Start-Up Graphical User Interface</span>
+
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:

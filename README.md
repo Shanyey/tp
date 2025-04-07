@@ -45,5 +45,5 @@ MediBook is simple to use yet powerful in functionality:
 
 ---
 
-* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
-* The medibook logo is taken from [Freepik](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fmedicine-book_504175&psig=AOvVaw1uUldPltP2JvtagcZ29psT&ust=1743920492022000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIim9JygwIwDFQAAAAAdAAAAABAE), to be utilized for our usage.
+- This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+- The medibook logo is taken from [Freepik](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fmedicine-book_504175&psig=AOvVaw1uUldPltP2JvtagcZ29psT&ust=1743920492022000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIim9JygwIwDFQAAAAAdAAAAABAE), to be utilized for our usage.
