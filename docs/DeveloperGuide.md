@@ -578,6 +578,8 @@ testers are expected to do more *exploratory* testing.
 
 [🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
+<div style="page-break-after: always;"></div>
+
 ### Editing a Person
 1. Editing any field of a person currently being displayed
     1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
