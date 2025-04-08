@@ -713,6 +713,7 @@ testers are expected to do more *exploratory* testing.
 <div style="page-break-after: always;"></div>
 
 ## **Appendix: Planned Enhancements**
+[Team size: 5]
 
 These are some features / improvements our team has planned to implement in the future due to lack of time.
 1. Patient medical history can be edited and added on to existing medical history.
