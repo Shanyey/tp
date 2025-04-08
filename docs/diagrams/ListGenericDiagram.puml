@@ -16,13 +16,13 @@ group sd execute
     activate LogicManager
     activate ListCommand
 
-    alt filterByCheckup == true
-        ListCommand -> Model : FilterByCheckup(new PersonHasCheckup())
+    alt filter by checkup
+        ListCommand -> Model : FilterByCheckup(...)
         activate Model
-    else appointmentFilter == null
+    else no appointment filter
         ListCommand -> Model : updateFilteredPersonList(...)
     else filter by appointment
-        ListCommand -> Model : updateFilteredPersonList(new PersonHasAppointment())
+        ListCommand -> Model : updateFilteredPersonList(...)
     end
 
     Model --> ListCommand
