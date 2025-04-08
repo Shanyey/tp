@@ -571,7 +571,6 @@ If your changes to the data file makes its format invalid, MediBook will start w
 Furthermore, certain edits can cause the MediBook to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
 [🔙 Back to Features](#features)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
