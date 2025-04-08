@@ -532,7 +532,7 @@ testers are expected to do more *exploratory* testing.
        Expected: Changed the name of the person at index 2 of the displayed list to Samantha.
     1. Testing other fields that can be edited:
        1. Editing tags
-          1. Test case: `edit 1 t/discharge t/No family` <br>
+          * Test case: `edit 1 t/discharge t/No family` <br>
           Expected: Removes all tags of the person at index 1 and creates 2 tags for that person.
        1. Medical History
           * Use `View` command to check medical history
@@ -541,7 +541,7 @@ testers are expected to do more *exploratory* testing.
           1. Test case: `edit 1 mh/`<br>
              Expected: Clears the medical history of the person.
        1. Appointment
-          1. **NOTE** Patients contacts can only be converted to Nurse appointment if it does not contain any medical history
+          * **NOTE** Patients contacts can only be converted to Nurse appointment if it does not contain any medical history
           1. Test case: `edit 2 ap/nurse`
           1. Expected: Changes the patients appointment to a nurse if there is no medical history. Returns an error if the patient does have medical history.
        1. Other tags to try: name, phone_number, blood_type, address, next_of_kin and email.
