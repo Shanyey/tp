@@ -62,6 +62,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **Design**
 
 ### Architecture
@@ -191,6 +193,8 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -339,6 +343,8 @@ We chose to implement parsing with a `ParserUtil` helper class to simplify each 
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Requirements**
 
@@ -503,6 +509,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
@@ -701,6 +709,8 @@ testers are expected to do more *exploratory* testing.
 
 [🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 [🔝 Back to Table of Contents](#table-of-contents)
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Planned Enhancements**
 
