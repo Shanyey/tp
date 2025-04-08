@@ -209,6 +209,8 @@ Quick Navigation:
 [Saving data](#saving-the-data) •
 [Editing data file](#editing-the-data-file) •
 
+<div style="page-break-after: always;"></div>
+
 ### Viewing help : `help`
 
 Launches a popup window with a link to our User Guide. Clicking on `Copy URL` will copy the URL for you to paste 
@@ -639,6 +641,7 @@ Example:
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 
 ## Colour Legend
 
