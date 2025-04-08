@@ -14,7 +14,7 @@ group sd execute
     activate FindNurseCommand
     activate LogicManager
 
-    FindNurseCommand -> Model : getPatientFromModel()
+    FindNurseCommand -> Model : getPatientFromModel(m)
 
     activate Model
 

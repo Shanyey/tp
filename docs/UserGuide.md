@@ -5,12 +5,13 @@ title: User Guide
 
 ## About Medibook
 
-MediBook is a **desktop app for private nurse center managers, to manage patient and nurse records, optimized for use via a Command Line Interface (CLI)**, while still offering the benefits of a Graphical User Interface (GUI).
+MediBook is a **desktop app for private nurse center nurses and managers , to manage patient and nurse records, optimized for use via a Command Line Interface (CLI)**, while still offering the benefits of a Graphical User Interface (GUI).
 
-Designed for speed and efficiency, **MediBook** empowers private nurse managers to:
-- Assign nurses to patients
-- Retrieve patient and nurse information
-- Manage checkup sessions and medical history of patients
+Designed for speed and efficiency, **MediBook** empowers private nurse centres to:
+* Manage manpower by assigning nurses to patients.
+* Manage checkup sessions and medical history of patients.
+* Track and retrieve patient and nurse information quickly and as needed.
+
 
 All within a user-friendly interface that is faster than traditional pen-and-paper or GUI-based systems. Get ready to revolutionize your private nurse centre management with **MediBook**, by getting started on a quick [Installation Guide](#installation-guide) and exploring the [Features](#features) of the app below!
 
@@ -210,7 +211,7 @@ Quick Navigation:
 
 ### Viewing help : `help`
 
-Launches a popup window with a link for our User Guide. Clicking on `Copy URL` will copy the URL for you to paste 
+Launches a popup window with a link to our User Guide. Clicking on `Copy URL` will copy the URL for you to paste 
 in your browser.
 
 ![help message](images/helpMessage.png)
@@ -474,7 +475,7 @@ Schedules or deletes checkup sessions for patients.
 
 #### Parameters
 
-*   `INDEX`: Refers to the index number of the patient in the displayed list. The index must be a positive integer (1, 2, 3, ...).
+*   `INDEX`: Refers to the index number of the patient in the displayed list. The index must be a positive integer (1, 2, 3, ...) and be within the total number of person in the list.
 *   `DATE`: The date for the checkup, in `DD/MM/YYYY` format.
 *   `TIME`: The time for the checkup, in `HHMM` format (24-hour clock).
 
@@ -497,7 +498,7 @@ Displays details of specified person. If specified person is a patient with medi
 * Displays the details of the person at `INDEX`.
 * If the person is a patient, then the patient's medical history is shown (if any).
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3,…​
+* The index **must be a positive integer** 1, 2, 3,…​ and be within the total number of person in the list.
 
 #### Format
 
@@ -519,7 +520,7 @@ Deletes the specified person from the address book.
 #### Details
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3,…​
+* The index **must be a positive integer** 1, 2, 3,…​ and be within the total number of person in the list.
 
 #### Format
 
@@ -566,7 +567,7 @@ MediBook data are saved in the hard disk automatically after any command that ch
 MediBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 **Caution:**
-If your manual changes to the addressbook.json file makes its format invalid, MediBook will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file makes its format invalid, MediBook will start with an empty data file at the next run and replace the corrupted data upon any action that changes the data. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the MediBook to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
 [🔙 Back to Features](#features)
@@ -642,12 +643,12 @@ Example:
 
 ## Colour Legend
 
-| Field               | Colour       |
-|---------------------|--------------|
-| Patient Appointment | Light Blue   |
-| Nurse Appointment   | Orange       |
-| Tag                 | Light Purple |
-| Checkup             | Light brown  |
-| Assigned Nurse      | Green        |
+| Field               | Colour                                            |
+|---------------------|---------------------------------------------------|
+| Patient Appointment | <span style="color: lightblue;">Light Blue</span> |
+| Nurse Appointment   | <span style="color: orange;">Orange</span>        |
+| Tag                 | <span style="color: #D8B2D1;">Light Purple</span> |
+| Checkup             | <span style="color: #D2B48C;">Light Brown</span>  |
+| Assigned Nurse      | <span style="color: green;">Green</span>          |
 
 [🔝 Back to Table of Contents](#table-of-contents)

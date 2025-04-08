@@ -16,7 +16,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class Checkup {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
+    public static final String MESSAGE_CONSTRAINTS = "Date Of Birth can only take the format:"
+            + "DD/MM/YYYY, and must be an existing date";
     public static final String MESSAGE_INVALID_DATETIME = "Time slot is not available";
     public static final String MESSAGE_FIFTEEN = "Please use a time in blocks of 00, 15, 30, or 45 minutes"
         + " (e.g., 1000, 1015, 1030, 1045).";

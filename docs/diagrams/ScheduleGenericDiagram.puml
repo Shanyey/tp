@@ -13,7 +13,7 @@ group sd execute
     LogicManager -> ScheduleCommand : execute(m)
     activate LogicManager
     activate ScheduleCommand
-    ScheduleCommand -> Model : getPatientFromModel
+    ScheduleCommand -> Model : getPatientFromModel(m)
     activate Model
 
     Model --> ScheduleCommand
@@ -26,7 +26,7 @@ group sd execute
     CheckupObject --> ScheduleCommand
     deactivate CheckupObject
 
-    ScheduleCommand -> ScheduleCommand : updatePatientWithCheckup
+    ScheduleCommand -> ScheduleCommand : updatePatientWithCheckup(...)
 
     create CommandResult
     ScheduleCommand -> CommandResult : new CommandResult(...)
