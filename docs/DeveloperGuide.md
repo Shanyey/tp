@@ -510,8 +510,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-<div style="page-break-after: always;"></div>
-
 ## **Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
