@@ -268,7 +268,7 @@ Displays a list of persons in the address book. You can choose to list all perso
 * `list nurse`: Shows only persons with the appointment role `Nurse`.
 * `list checkup`: Shows only the patients with scheduled checkups, sorted from earliest to latest checkup.
 
-![result for 'list'](images/listAllNurseAndPatient.png)
+![result for 'list'](images/listAllNurseAndPatientLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`list` Command Execution</span>
 
 [🔙 Back to Features](#features)
