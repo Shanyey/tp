@@ -391,6 +391,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | Forgetful Nurse               | schedule automatic reminders for task like checkups and medications times            | task are always done on time                                                                    |
 | `*`      | Nurse during a midnight shift | activate night mode interface with darker colours and larger text to enhance visuals | reduce eye strain while ensuring accuracy when recording patient data in dimly lit environments |
 | `*`      | Manager                       | log in using my staff credential                                                     | Securely access patient records                                                                 |
+
 [🔝 Back to Requirements](#appendix-requirements)
 
 ### Use cases
@@ -718,19 +719,16 @@ These are some features / improvements our team has planned to implement in the 
 3. More nurses can be assigned to one patient.
    * Currently, the maximum number of nurses that can be assigned to a patient is 2.
    * For future enhancements, we may increase the number of nurses that can be assigned to a patient, as this would be more realistic for cases where multiple nurses would be needed to attend to one patient.
-4. Leap year DOB / February DOB will be handled correctly.
-   * Currently, DOB for leap years is not handled correctly, and dates such as 30/02/2000 are allowed in the DOB field.
-   * For future enhancements, such dates will be handled correctly to only allow logical date inputs.
-5. Corrupted JSON file will be handled gracefully.
+4. Corrupted JSON file will be handled gracefully.
    * Currently, a blank page will be displayed if the JSON file is corrupted.
    * For future enhancements, we may display a warning message to the user, and instructions would be given for reloading the app or retrieving sample data.
-6. Reminders can be added for checkups.
+5. Reminders can be added for checkups.
    * Currently, checkups can be scheduled for a patient, but nurses will not receive a reminder about the checkups for the patients that they are assigned to.
    * For future enhancements, a reminder feature would allow nurses to receive reminders in advance for the patient checkups that they are assigned to.
-7. Warning messages will be displayed when scheduling checkups for patients who do not have any assigned nurses.
+6. Warning messages will be displayed when scheduling checkups for patients who do not have any assigned nurses.
    * Currently, users are allowed to schedule checkups for patients even if the patient does not have any nurses assigned to them.
    * For future enhancements, a warning will be displayed to alert the user that the patient they are scheduling a checkup for does not have any assigned nurses.
-8. Nearly similar person `edit` handling is not consistent due to the search functionality.
+7. Nearly similar person `edit` handling is not consistent due to the search functionality.
    * A nearly identical person refers to a person that has all of the same person attributes as another person, except
    for any one of these attributes: `name`, `phone number` and `date of birth`.
    * Currently, the `edit` command **may** not work if it is applied to a nearly similar person, that is not the first person in line among the nearly identical person, shown in the current list. 
