@@ -665,6 +665,12 @@ These are some features / improvements our team has planned to implement in the 
 7. Warning messages will be displayed when scheduling checkups for patients who do not have any assigned nurses.
    * Currently, users are allowed to schedule checkups for patients even if the patient does not have any nurses assigned to them.
    * For future enhancements, a warning will be displayed to alert the user that the patient they are scheduling a checkup for does not have any assigned nurses.
+8. Nearly similar person `edit` handling is not consistent due to the search functionality.
+   * A nearly identical person refers to a person that has all of the same person attributes as another person, except
+   for any one of these attributes: `name`, `phone number` and `date of birth`.
+   * Currently, the `edit` command **may** not work if it is applied to a nearly similar person, that is not the first person in line among the nearly identical person, shown in the current list. 
+   * `edit` will tend to edit the first person in line among the nearly identical persons, instead of the one that is
+   intended to be edited (i.e. the nearly identical person not first in line).
 
 ## **Appendix: Effort**
 
