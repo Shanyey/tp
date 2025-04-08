@@ -92,7 +92,7 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
 
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
 
-   ![Ui](images/Ui.png)
+   ![Ui](images/UiLarge.png)
 <span style="display: block; text-align: center; margin: 0;">MediBook Start-Up Graphical User Interface</span>
 
 
@@ -141,19 +141,19 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
 
 This section provides an overview of all the attributes a person in MediBook can have, including whether they're required, what format they should follow, and any special notes.
 
-| **Attribute**    | **Prefix** | **Required?** | **Valid Format**                                                                                                                                                                                                                                                       | **Example**                             |
-|------------------|------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| Name             | `n/`       | ✅ Yes         | - Alphabetical<br/>- **Non consecutive** special characters (hyphens, slash, apostrophes)<br/>- Spaces<br/>- Cannot start or end with a special character<br/>- Case-insensitive                                                                                       | E.g., `Joh'n-S/O-Doe`                   |
-| Date of Birth    | `dob/`     | ✅ Yes         | `dd/mm/yyyy`                                                                                                                                                                                                                                                           | E.g., `11/11/2003`                      |
-| Phone Number     | `p/`       | ✅ Yes         | - Max allowable is 17 digits<br/>- Spaces are allowed, but each group requires min 3 digits <br/>- Only numericals and spaces are allowed, no other symbols are allowed                                                                                                | E.g., `1234 567 890`                    |
-| Address          | `a/`       | ✅ Yes         | -  Free text<br/>- Case-sensitive                                                                                                                                                                                                                                      | E.g., `10 NUS Road, #03-21`             |
-| Blood Type       | `b/`       | ✅ Yes         | - Standard blood group types <br/>- Case-insensitive                                                                                                                                                                                                                   | E.g., `A+`, `AB-`, etc.                 |
-| Appointment Type | `ap/`      | ✅ Yes         | - Appointment type of personnel <br/>- Case-insensitive                                                                                                                                                                                                                | E.g., `Nurse` or `Patient`              |
-| Email            | `e/`       | ❌ Optional    | - `local-part@domain.com` <br/>- Local-part (min 2 characters) with special characters (plus, underscore, dot, hyphen) <br/>- Local-part must start with alphanumeric character <br/>- Domain (min 1 character) <br/>- `com` can be replaced with minimum 2 characters | E.g., `john@example.com`                |
-| Next of Kin      | `nok/`     | ❌ Optional    | - `Name Phone` <br/>- A space is required between `Name` and `Phone` <br/>- `Name` Same format constraints as the name attribute above <br/>- `Phone` Same format constraints as the phone number attribute above <br/>- Only one Next of Kin allowed                  | E.g., `Jane 91234567`                   |
-| Tags             | `t/`       | ❌ Optional    | - Only alphanumeric and spaces allowed <br/>- Case-sensitive <br/>- Multiple tags allowed <br/>- [Colour based](#Colour-Legend)                                                                                                                                        | E.g., `2 Smart`                         |
-| Medical History  | `m/`       | ❌ Optional*   | - Alphanumerical and spaces <br/>- Special characters (commas, hyphens, slash, rounded brackets, colon)<br/>- Only allowed for **patients** <br/>- Multiple medical histories allowed                                                                                  | E.g., `(Very, sick): - urgent/needy12`  |
-| Checkups         | *(N/A)*    | ❌ Optional    | Managed via `schedule` command <br/>- Each checkup is fixed 30 minutes <br/>- Checkups cannot be scheduled in the past.                                                                                                                                                | Not included in `add` and `edit` command |
+| **Attribute**   | **Prefix** | **Required?** | **Valid Format**                                                                                                                                                                                                                                                      | **Example**|
+|-|-|-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-|
+| Name            | `n/`       | ✅ Yes         | Alphabetical<br/>- **Non consecutive** special characters (hyphens, slash, apostrophes)<br/>- Spaces<br/>- Cannot start or end with a special character<br/>- Case-insensitive                                                                                        | E.g., `Joh'n-S/O-Doe`                   |
+| Date of Birth   | `dob/`     | ✅ Yes         | - Follows the format of `dd/mm/yyyy`<br> - Accepts leap dates `29/02/2004`<br> - Invalid dates are not allowed `30/04/2002`                                                                                                                                            | E.g., `11/11/2003`                      |
+| Phone Number    | `p/`       | ✅ Yes         | - Max allowable is 17 digits<br/>- Spaces are allowed, but each group requires min 3 digits <br/>- Only numericals and spaces are allowed, no other symbols are allowed                                                                                               | E.g., `1234 567 890`                    |
+| Address         | `a/`       | ✅ Yes         | -  Free text<br/>- Case-sensitive                                                                                                                                                                                                                                     | E.g., `10 NUS Road, #03-21`             |
+| Blood Type      | `b/`       | ✅ Yes         | - Standard blood group types <br/>- Case-insensitive                                                                                                                                                                                                                  | E.g., `A+`, `AB-`, etc.                 |
+| Appointment Type | `ap/`      | ✅ Yes         | - Appointment type of personnel <br/>- Case-insensitive                                                                                                                                                                                                               | E.g., `Nurse` or `Patient`              |
+| Email           | `e/`       | ❌ Optional    | - `local-part@domain.com` <br/>- Local-part (min 2 characters) with special characters (plus, underscore, dot, hyphen) <br/>- Local-part must start with alphanumeric character <br/>- Domain (min 1 character) <br/>- `com` can be replaced with minimum 2 characters | E.g., `john@example.com`                |
+| Next of Kin     | `nok/`     | ❌ Optional    | - `Name Phone` <br/>- A space is required between `Name` and `Phone` <br/>- `Name` Same format constraints as the name attribute above <br/>- `Phone` Same format constraints as the phone number attribute above <br/>- Only one Next of Kin allowed                 | E.g., `Jane 91234567`                   |
+| Tags            | `t/`       | ❌ Optional    | - Only alphanumeric and spaces allowed <br/>- Case-sensitive <br/>- Multiple tags allowed <br/>- [Colour based](#Colour-Legend)                                                                                                                                       | E.g., `2 Smart`                         |
+| Medical History | `m/`       | ❌ Optional*   | - Alphanumerical and spaces <br/>- Special characters (commas, hyphens, slash, rounded brackets, colon)<br/>- Only allowed for **patients** <br/>- Multiple medical histories allowed                                                                                 | E.g., `(Very, sick): - urgent/needy12`  |
+| Checkups        | *(N/A)*    | ❌ Optional    | Managed via `schedule` command <br/>- Each checkup is fixed 30 minutes <br/>- Checkups cannot be scheduled in the past.                                                                                                                                               | Not included in `add` and `edit` command |
 
 > ⚠️ **Note:** Optional fields are marked with square brackets in command formats for readability. **Do not include square brackets in your actual command input.**
 > ✅ Correct: `e/john@example.com`
@@ -244,7 +244,7 @@ Adds a person to the address book.
 
 > ⚠️ **Constraints:** MediBook has a duplicate policy which you can view [here](#duplicate-policy).
 
-![result for 'add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man'](images/AddPerson.png)
+![result for 'add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man'](images/AddPersonLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -303,7 +303,7 @@ Edits an existing person's information in MediBook.
 
 > ⚠️ **Constraints:** MediBook has a duplicate policy which you can view [here](#duplicate-policy).
 
-![result for 'edit 1 p/8549 9584 b/O+'](images/EditPerson.png)
+![result for 'edit 1 p/8549 9584 b/O+'](images/EditPersonLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`edit 1 p/8549 9584 b/O+` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -328,7 +328,7 @@ Assigns a specified nurse to a specified patient.
 
 * `assign 6 4` assigns the nurse at index 4 to the patient at index 6.
 
-![result for 'assign 6 4'](images/AssignScreenshot.png)
+![result for 'assign 6 4'](images/AssignScreenshotLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`assign 6 4` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -382,7 +382,7 @@ Finds persons whose names contain any of the given keywords or prefixes.
 * `find John` returns `jOHN` and `JOHN DOE`
 * `find al` returns `ALEX YEOH` and `SALLY`
 
-![result for 'find alex david'](images/findAlexDavidResult.png)
+![result for 'find alex david'](images/findAlexDavidResultLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`find alex david` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -409,7 +409,7 @@ Finds patients assigned under a specified nurse.
 * `find patient of nurse 4` returns e.g: Patient(s) assigned to nurse DAVID LI: JOHN DOE.
 * `find patient of nurse 3` returns e.g: No patient assigned to the nurse at index 3. 
 
-![result for 'find patient of nurse 3'](images/FindPatientOfNurse.png)
+![result for 'find patient of nurse 3'](images/FindPatientOfNurseLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`find patient of nurse 4` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -437,7 +437,7 @@ Finds nurse(s) assigned to a specified patient.
 * `find nurse of patient 6` returns e.g: Nurse(s) assigned to patient JOHN DOE: DAVID LI.
 * `find nurse of patient 7` returns e.g: No nurse assigned to the patient at index 7.
 
-![result for 'find nurse of patient 6'](images/FindNurseOfPatient.png)
+![result for 'find nurse of patient 6'](images/FindNurseOfPatientLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`find nurse of patient 6` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -484,7 +484,7 @@ Schedules or deletes checkup sessions for patients.
 *   `schedule add for patient 6 11/07/2025 1400`: Schedules a checkup for the patient at index 6 on July 11, 2025, at 14:00 PM. 
 *   `schedule delete for patient 6 11/07/2025 1400`: Deletes a checkup for the patient at index 6 on July 11, 2025, at 14:00 PM.
 
-![result for 'schedule add for patient 6 11/07/2025 1400'](images/ScheduleCheckupForPatient.png)
+![result for 'schedule add for patient 6 11/07/2025 1400'](images/ScheduleCheckupForPatientLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`schedule add for patient 6 11/07/2025 1400` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -508,7 +508,7 @@ Displays details of specified person. If specified person is a patient with medi
 
 * `view 7`: Views the 7th person in the list and displays the person's details. If the person is a patient and has medical history, then medical history will be shown.
 
-![result for 'view 7'](images/ViewMedicalHistory.png)
+![result for 'view 7'](images/ViewMedicalHistoryLarge.png)
 <span style="display: block; text-align: center; margin: 0;">`view 7` Command Execution</span>
 
 [🔙 Back to Features](#features)
@@ -571,7 +571,6 @@ If your changes to the data file makes its format invalid, MediBook will start w
 Furthermore, certain edits can cause the MediBook to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
 [🔙 Back to Features](#features)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
