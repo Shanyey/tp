@@ -415,6 +415,7 @@ Finds patients assigned under a specified nurse.
 <span style="display: block; text-align: center; margin: 0;">`find patient of nurse 4` Command Execution</span>
 
 [🔙 Back to Features](#features)
+<div style="page-break-after: always;"></div>
 
 ### Finding nurse : `find nurse of patient`
 
