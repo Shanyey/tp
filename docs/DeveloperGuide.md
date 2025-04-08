@@ -544,7 +544,7 @@ testers are expected to do more *exploratory* testing.
           * **NOTE** Patients contacts can only be converted to Nurse appointment if it does not contain any medical history
           1. Test case: `edit 2 ap/nurse`
           1. Expected: Changes the patients appointment to a nurse if there is no medical history. Returns an error if the patient does have medical history.
-       1. Other tags to try: name, phone_number, blood_type, address, next_of_kin and email.
+       1. Other fields to try: name, phone_number, blood_type, address, next_of_kin and email.
 
 ### Listing persons
 1. Listing all people, people based on appointments (nurse or patient), or based on checkups scheduled
