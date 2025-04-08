@@ -188,7 +188,6 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 [🔝 Back to Design](#design)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -323,7 +322,6 @@ The `schedule` command allows the user to create a checkup between a patient and
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
 
 [🔝 Back to Implementation](#implementation)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 
@@ -502,7 +500,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Checkup**: A scheduled appointment for nurse to visit and treat the patient.
 
 [🔝 Back to Requirements](#appendix-requirements)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -703,7 +700,6 @@ testers are expected to do more *exploratory* testing.
    1. Delete the file and restart the app to recover and start with a small list of sample contacts.
 
 [🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
-
 [🔝 Back to Table of Contents](#table-of-contents)
 
 ## **Appendix: Planned Enhancements**
