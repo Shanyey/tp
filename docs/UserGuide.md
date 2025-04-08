@@ -21,7 +21,7 @@ This user guide is designed to help you get started with **MediBook**, and to pr
 
 > ⚠️ **Note:** The word `person` in this user guide refers to both patients and nurses, unless otherwise specified.
 
-> 💡**Tip**: If this is your **first time** using Medibook, we recommend running the command `list` before and after running any commands to get the desired output.
+> 💡 **Tip**: If this is your **first time** using Medibook, we recommend running the command `list` before and after running any commands to get the desired output.
 
 To get an overview of the guide, you can refer to the [Table of contents](#table-of-contents) below.
 
@@ -41,7 +41,7 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
     * [Editing a person](#editing-a-person--edit) : `edit`
     * [Assign a nurse to a patient](#assign-a-nurse-to-a-patient--assign) : `assign`
     * [Delete nurse assignment from a patient](#deleting-a-person--delete) : `assign delete`
-    * [Locating persons](#locating-persons--find) : `find`
+    * [Finding persons](#finding-persons--find) : `find`
     * [Finding patient](#finding-patient--find-patient-of-nurse-) : `find patient of nurse`
     * [Finding nurse](#finding-nurse--find-nurse-of-patient) : `find nurse of patient`
     * [Schedule checkups](#schedule-checkups--schedule-add-for-patient--schedule-delete-for-patient) : `schedule add for patient` / `schedule delete for patient`
@@ -198,7 +198,7 @@ Quick Navigation:
 [Editing a person](#editing-a-person--edit) •
 [Assigning nurse to a patient](#assign-a-nurse-to-a-patient--assign) •
 [Delete nurse assignment from patient](#delete-nurse-assignment-from-a-patient--assign-delete) •
-[Locating persons](#locating-persons--find) •
+[Finding persons](#finding-persons--find) •
 [Finding patient](#finding-patient--find-patient-of-nurse-) •
 [Finding nurse](#finding-nurse--find-nurse-of-patient) •
 [Schedule checkups](#schedule-checkups--schedule-add-for-patient--schedule-delete-for-patient) •
@@ -240,7 +240,7 @@ Adds a person to the address book.
 * `add n/John Doe dob/01/01/2001 p/98765432 a/311, Clementi Ave 2, #02-25 b/AB+ ap/Patient t/Strong man`
 * `add n/Betsy Crowe dob/01/01/2001 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/No Family mh/Insane, but not dangerous b/B+ ap/Patient`
 
->💡**Tip**: You can refer back to [here](#overview-of-person-attributes), for more details on the person attributes and their formats.
+>💡 **Tip**: You can refer back to [here](#overview-of-person-attributes), for more details on the person attributes and their formats.
 
 > ⚠️ **Constraints:** MediBook has a duplicate policy which you can view [here](#duplicate-policy).
 
@@ -354,7 +354,7 @@ Removes a specified assigned nurse from a specified patient.
 
 [🔙 Back to Features](#features)
 
-### Locating persons : `find`
+### Finding persons : `find`
 
 Finds persons whose names contain any of the given keywords or prefixes.
 
@@ -612,7 +612,7 @@ If not, you need to install Java.
 | [**Edit**](#editing-a-person--edit)                                                       | `edit INDEX [n/NAME] [dob/DOB] [p/PHONE] [e/EMAIL] [a/ADDRESS] [b/BLOOD_TYPE] [ap/APPOINTMENT] [nok/NEXT_OF_KIN_NAME_PHONE] [t/TAG]…​ [mh/MEDICAL_HISTORY]…​` <br/> e.g., `edit 1 p/8549 9584 b/O+`                                                                |
 | [**Assign**](#assign-a-nurse-to-a-patient--assign)                                        | `assign PATIENT_INDEX NURSE_INDEX`<br> e.g., `assign 6 4`                                                                                                                                                                                                          |
 | [**Assign Delete**](#delete-nurse-assignment-from-a-patient--assign-delete)               | `assign delete NURSE_NAME PATIENT_INDEX`<br> e.g., `assign delete David Li 6`                                                                                                                                                                                      |
-| [**Find**](#locating-persons--find)                                                       | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                         |
+| [**Find**](#finding-persons--find)                                                        | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                         |
 | [**Find Patient**](#finding-patient--find-patient-of-nurse-)                              | `find patient of nurse INDEX`<br> e.g., `find patient of nurse 4`                                                                                                                                                                                                  |
 | [**Find Nurse**](#finding-nurse--find-nurse-of-patient)                                   | `find nurse of patient INDEX`<br> e.g., `find nurse of patient 6`                                                                                                                                                                                                  |
 | [**Schedule**](#schedule-checkups--schedule-add-for-patient--schedule-delete-for-patient) | `schedule add for patient PATIENT_INDEX DATE_TIME`<br> e.g., `schedule add for patient 6 11/07/2025 1400`<br>`schedule delete for patient PATIENT_INDEX DATE_TIME`<br> e.g., `schedule delete for patient 6 11/07/2025 1400`                                       |
