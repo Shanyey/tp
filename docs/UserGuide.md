@@ -5,12 +5,13 @@ title: User Guide
 
 ## About Medibook
 
-MediBook is a **desktop app for private nurse center managers, to manage patient and nurse records, optimized for use via a Command Line Interface (CLI)**, while still offering the benefits of a Graphical User Interface (GUI).
+MediBook is a **desktop app for private nurse center nurses and managers , to manage patient and nurse records, optimized for use via a Command Line Interface (CLI)**, while still offering the benefits of a Graphical User Interface (GUI).
 
 Designed for speed and efficiency, **MediBook** empowers private nurse centres to:
-- Assign nurses to patients
-- Retrieve patient and nurse information
-- Manage checkup sessions and medical history of patients
+* Manage manpower by assigning nurses to patients.
+* Manage checkup sessions and medical history of patients.
+* Track and retrieve patient and nurse information quickly and as needed.
+
 
 All within a user-friendly interface that is faster than traditional pen-and-paper or GUI-based systems. Get ready to revolutionize your private nurse centre management with **MediBook**, by getting started on a quick [Installation Guide](#installation-guide) and exploring the [Features](#features) of the app below!
 
@@ -23,7 +24,7 @@ To get an overview of the guide, you can refer to the [Table of contents](#table
 <div style="page-break-after: always;"></div>
 
 ## Table of Contents
-
+    
 1. [About Medibook](#about-medibook)
 2. [Using this user guide](#using-this-user-guide)
 3. [Table of contents](#table-of-contents)
@@ -555,7 +556,7 @@ MediBook data are saved in the hard disk automatically after any command that ch
 MediBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 **Caution:**
-If your changes to the data file makes its format invalid, MediBook will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file makes its format invalid, MediBook will start with an empty data file at the next run and replace the corrupted data upon any action that changes the data. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the MediBook to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
 [🔙 Back to Features](#features)

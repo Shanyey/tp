@@ -50,11 +50,15 @@ title: Developer Guide
 * [JavaFX](https://openjfx.io/) for creating the Graphic User Interface of MediBook.
 * [JUnit5](https://github.com/junit-team/junit5) for testing capability.
 
+[🔝 Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -100,6 +104,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+[🔝 Back to Design](#design)
+
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -116,6 +122,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+
+[🔝 Back to Design](#design)
 
 ### Logic component
 
@@ -146,11 +154,10 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+[🔝 Back to Design](#design)
+
 ### Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
-
-
-
 
 The `Model` component,
 
@@ -160,6 +167,8 @@ The `Model` component,
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 <img src="images/ModelClassDiagram.png" width="550">
+
+[🔝 Back to Design](#design)
 
 ### Storage component
 
@@ -172,9 +181,15 @@ The `Storage` component,
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
+[🔝 Back to Design](#design)
+
 ### Common classes
 
 Classes used by multiple components are in the `seedu.address.commons` package.
+
+[🔝 Back to Design](#design)
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -196,6 +211,8 @@ The `add` command allows the user to add a new person to the address book.
 
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
 
+[🔝 Back to Implementation](#implementation)
+
 ### Edit Feature
 
 The `edit` command allows the user to edit an existing person in the address book.
@@ -210,6 +227,8 @@ The `edit` command allows the user to edit an existing person in the address boo
 #### Design considerations:
 
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
+
+[🔝 Back to Implementation](#implementation)
 
 ### List Feature
 
@@ -235,6 +254,8 @@ It supports the following use cases:
 #### Design considerations:
 
 We chose to centralize filtering logic inside `ListCommand`, separating parsing (`ListCommandParser`) from behavior. This approach improves maintainability and makes it easy to extend filtering options (e.g., by tag or medical history) in the future.
+
+[🔝 Back to Implementation](#implementation)
 
 ### Find Feature
 
@@ -265,6 +286,8 @@ Using this command, users can effortlessly navigate and manage their address boo
 
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
 
+[🔝 Back to Implementation](#implementation)
+
 ### Assign Feature
 
 The `assign` command allows the user to assign a nurse to a patient.
@@ -280,6 +303,8 @@ The `assign` command allows the user to assign a nurse to a patient.
 #### Design considerations:
 
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
+
+[🔝 Back to Implementation](#implementation)
 
 ### Schedule Feature
 
@@ -297,6 +322,9 @@ The `schedule` command allows the user to create a checkup between a patient and
 
 We chose to implement parsing with a `ParserUtil` helper class to simplify each command parser. An alternative would be using a central parser for all commands, but this was less modular.
 
+[🔝 Back to Implementation](#implementation)
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 
 
@@ -309,6 +337,8 @@ We chose to implement parsing with a `ParserUtil` helper class to simplify each 
 * [Logging guide](Logging.md)
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -330,6 +360,8 @@ We chose to implement parsing with a `ParserUtil` helper class to simplify each 
 1. Allows faster creation and storage of details compared to traditional pen and paper methods
 1. Enables easy transfer and tracking of patients compared to current system where it is inefficient to do so
 1. Saves time from having to log into centralised system from healthcare system in Singapore each time data is needed.
+
+[🔝 Back to Requirements](#appendix-requirements)
 
 ### User stories
 
@@ -359,6 +391,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | Forgetful Nurse               | schedule automatic reminders for task like checkups and medications times            | task are always done on time                                                                    |
 | `*`      | Nurse during a midnight shift | activate night mode interface with darker colours and larger text to enhance visuals | reduce eye strain while ensuring accuracy when recording patient data in dimly lit environments |
 | `*`      | Manager                       | log in using my staff credential                                                     | Securely access patient records                                                                 |
+[🔝 Back to Requirements](#appendix-requirements)
 
 ### Use cases
 
@@ -449,11 +482,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 1.
 
+[🔝 Back to Requirements](#appendix-requirements)
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+
+[🔝 Back to Requirements](#appendix-requirements)
 
 ### Glossary
 
@@ -462,6 +499,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Manager**: Manages the nurses
 * **Nurse**: Tends to the patients
 * **Checkup**: A scheduled appointment for nurse to visit and treat the patient.
+
+[🔝 Back to Requirements](#appendix-requirements)
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -491,6 +532,8 @@ testers are expected to do more *exploratory* testing.
    1. Type exit into the app CLI<br>
       Expected: The MediBook application closes.
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Deleting a person
 
 1. Deleting a person while all persons are being shown
@@ -505,6 +548,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
+
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
 ### Adding a person
 1. Adding a person while all persons are being shown
@@ -524,6 +569,8 @@ testers are expected to do more *exploratory* testing.
    1. Invalid Date of Birth: Non integer and non slash inputs, incorrect date format (DD/MM/YYYY)
    1. Invalid Blood type: Not matching any of the 8 specified blood types.
    1. Invalid Appointment: Not matching patient or nurse, non-alphabetical inputs
+
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
 ### Editing a Person
 1. Editing any field of a person currently being displayed
@@ -546,6 +593,8 @@ testers are expected to do more *exploratory* testing.
           1. Expected: Changes the patients appointment to a nurse if there is no medical history. Returns an error if the patient does have medical history.
        1. Other tags to try: name, phone_number, blood_type, address, next_of_kin and email.
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Listing persons
 1. Listing all people, people based on appointments (nurse or patient), or based on checkups scheduled
    1. Prerequisites: Multiple persons have been created and can be displayed.
@@ -557,6 +606,8 @@ testers are expected to do more *exploratory* testing.
       Expected: Displays all nurses.
    1. Test case: `list checkup`<br>
       Expected: Displays all patients with checkups scheduled, sorted from earliest to latest.
+
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
 ### Finding persons
 1. Finding people by name or part of name
@@ -576,6 +627,8 @@ testers are expected to do more *exploratory* testing.
    1. Test case: `find patient of nurse 2`<br>
       Expected: Displays patients(s) assigned to nurse at index 2 in the result box.
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Assigning a nurse to a patient
 1. Assigning a nurse to a patient by their index numbers
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list where at least 1 nurse and at least 1 patient person exists.
@@ -588,6 +641,8 @@ testers are expected to do more *exploratory* testing.
       2. Invalid index: using non-numeric characters for index values
       3. Assigning a third nurse to a patient that has already been assigned 2 nurses.
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Removing nurse assignment from a patient
 1. Removing the assignment of a nurse from a patient
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list. Patients with assigned nurses exist.
@@ -598,6 +653,8 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect commands to try:
       1. Missing an argument: no `NURSE_NAME` or `PATIENT_INDEX` specified
       2. Invalid index: using non-numeric characters for the index value
+
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
 ### Schedule checkups
 1. Adding a checkup to a patient
@@ -621,6 +678,8 @@ testers are expected to do more *exploratory* testing.
    1. Test case: `schedule delete for patient 6 12/12/2025 1700`<br>
       Expected: If there is no checkup created at that time yet, an error message saying that there is no such checkup will be shown. Else, same as test case above.
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Viewing nurses / patients
 1. Viewing nurse or patient details
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
@@ -633,12 +692,18 @@ testers are expected to do more *exploratory* testing.
       2. Invalid index: using non-numeric characters for the index value
       3. Too many arguments: entering multiple index values
 
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
    1. Simulate a corrupted file by editing the saved .json file such that it is no longer in json format. This should result in a empty screen upon start up.
    1. Delete the file and restart the app to recover and start with a small list of sample contacts.
+
+[🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 ## **Appendix: Planned Enhancements**
 
@@ -665,6 +730,8 @@ These are some features / improvements our team has planned to implement in the 
 7. Warning messages will be displayed when scheduling checkups for patients who do not have any assigned nurses.
    * Currently, users are allowed to schedule checkups for patients even if the patient does not have any nurses assigned to them.
    * For future enhancements, a warning will be displayed to alert the user that the patient they are scheduling a checkup for does not have any assigned nurses.
+
+[🔝 Back to Table of Contents](#table-of-contents)
 
 ## **Appendix: Effort**
 
@@ -699,3 +766,4 @@ Our project required effort in these 4 main aspects:
 ### Achievements
 Despite the complexity and effort required, our final project offers a user-friendly and extensible system. Our main achievements in this project were: implementing scheduling of medical checkups with conflict management implemented, list command with important filters such as checkup existence, allowing more optional fields like next of kin and email to provide more flexibility to the user, and last but not least adjusting requirements of duplicate persons to better match real world situations.
 
+[🔝 Back to Table of Contents](#table-of-contents)
