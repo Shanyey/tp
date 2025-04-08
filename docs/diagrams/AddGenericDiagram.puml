@@ -14,7 +14,7 @@ group sd execute
     activate LogicManager
     activate AddCommand
 
-    alt model.hasPerson(toAdd) == true
+    alt person exists
             AddCommand ---> LogicManager : throw CommandException
 
             else else

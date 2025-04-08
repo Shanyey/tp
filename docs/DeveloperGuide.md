@@ -591,7 +591,7 @@ testers are expected to do more *exploratory* testing.
           * **NOTE** Patients contacts can only be converted to Nurse appointment if it does not contain any medical history
           1. Test case: `edit 2 ap/nurse`
           1. Expected: Changes the patients appointment to a nurse if there is no medical history. Returns an error if the patient does have medical history.
-       1. Other tags to try: name, phone_number, blood_type, address, next_of_kin and email.
+       1. Other fields to try: name, phone_number, blood_type, address, next_of_kin and email.
 
 [🔝 Back to Manual Testing](#appendix-instructions-for-manual-testing)
 
@@ -617,7 +617,7 @@ testers are expected to do more *exploratory* testing.
    1. Test case: `find hn`<br>
       Expected: Displays contacts whose names contain `hn` in any part of their name. E.g. `John` will be displayed.
    2. Test case: `find hn ce`<br>
-      Expected: Displays contacts whose name contain `hn` or `ce` in any part of their name. E.g. `John` and Alice will be displayed.
+      Expected: Displays contacts whose name contain `hn` or `ce` in any part of their name. E.g. `John` and `Alice` will be displayed.
 1. Finding nurse(s) assigned to a patient
    1. Prerequisites: List persons using any `list` command. Multiple persons in the list. At least 1 patient has a nurse assigned to them.
    1. Test case: `find nurse of patient 2`<br>
