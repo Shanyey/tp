@@ -740,6 +740,9 @@ These are some features / improvements our team has planned to implement in the 
    * Currently, the `edit` command **may** not work if it is applied to a nearly similar person, that is not the first person in line among the nearly identical person, shown in the current list. 
    * `edit` will tend to edit the first person in line among the nearly identical persons, instead of the one that is
    intended to be edited (i.e. the nearly identical person not first in line).
+8. Finding by other fields such as blood type or tags.
+9. Sorting lists by other fields such as blood type.
+10. Allow for assigning severity to better manage patients.
 
 [🔝 Back to Table of Contents](#table-of-contents)
 
