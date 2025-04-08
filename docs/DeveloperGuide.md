@@ -566,7 +566,7 @@ testers are expected to do more *exploratory* testing.
    1. Test case: `find hn`<br>
       Expected: Displays contacts whose names contain `hn` in any part of their name. E.g. `John` will be displayed.
    2. Test case: `find hn ce`<br>
-      Expected: Displays contacts whose name contain `hn` or `ce` in any part of their name. E.g. `John` and Alice will be displayed.
+      Expected: Displays contacts whose name contain `hn` or `ce` in any part of their name. E.g. `John` and `Alice` will be displayed.
 1. Finding nurse(s) assigned to a patient
    1. Prerequisites: List persons using any `list` command. Multiple persons in the list. At least 1 patient has a nurse assigned to them.
    1. Test case: `find nurse of patient 2`<br>
